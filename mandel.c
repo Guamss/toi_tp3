@@ -25,14 +25,14 @@ double cy(int y)
 
 int main(int argc, char *argv[])
 {
-    struct ppm_image im;
-    ppm_image_init(&im, SIZEX, SIZEY);
+    struct ppm_image im; 
+    ppm_image_init(&im, SIZEX, SIZEY); // initialisation de la variable im, une image ppm
 
     int i, j;
     double colref = 255.0 / log(ITER);
 
-    for (i = 0; i < SIZEX; ++i) {
-        for (j = 0; j < SIZEY; ++j) {
+    for (i = 0; i < SIZEX; ++i) { // on parcourt les lignes de l'image
+        for (j = 0; j < SIZEY; ++j) { // on parcourt les colones de l'image
             unsigned long int iter = 0;
 
             double complex c = cx(i) + cy(j) * I;
@@ -49,8 +49,8 @@ int main(int argc, char *argv[])
                 iter++;
             }
 
-            int grey = colref * log(iter);
-            ppm_image_setpixel(&im, i, j, grey, grey, grey);
+            int grey = colref * log(iter); // la couleur grise
+            ppm_image_setpixel(&im, i, j, grey, grey, grey); // on colorie un pixel aux coordonnées [i, j] un pixel de couleur r:grey, g:grey, b: grey
         }
     }
 
