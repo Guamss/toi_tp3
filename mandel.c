@@ -11,7 +11,7 @@
 
 double cx(int x)
 {
-    // -2 ---> 1
+    // -2 ---> 1 
     static const double qx = 3.0 / (double)SIZEX;
     return -2.0 + x * qx;
 }
