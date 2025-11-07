@@ -11,7 +11,8 @@ test: main.c libppm.so
 	$(CC) $(CFLAGS) $(LDFLAGS) -lppm -L. $< -o $@
 
 mandel: mandel.c libppm.so
-	$(CC) $(CFLAGS) $(LDFLAGS) -lppm -L. $< -o $@
+	$(CC) $(CFLAGS) $(LDFLAGS) -lppm -L. -lm $< -o $@
+
 
 clean:
 	rm -fr $(TARGET) *.so
